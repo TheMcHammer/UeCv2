@@ -1,0 +1,33 @@
+{% extends 'common.html' %}
+
+{% block body %}
+
+   <div class="container ">
+
+   	             <div class="col-sm-8">            
+						     <ul class="nav nav-pills">
+								  <li class="nav-item">
+								    <a class="nav-link" href='{% url "counsel_appointment"%}'>My Appointments</a>
+								  </li>
+								  <li class="nav-item">
+								    <a class="nav-link" href='{% url "counsel_appointment_list"%}'>Create Appointment</a>
+								  </li>
+								  <li class="nav-item">
+								    <a href="/messages" target="blank"><strong>Inbox</strong></a>
+								  </li>
+							  </ul>	                             
+                  </div>
+
+
+
+    </div>
+
+    {% block common_counsel %}
+    
+    {% endblock common_counsel %}
+
+{% endblock %}
+
+
+
+
