@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-import dotenv
+from dotenv import load_dotenv
 import django_heroku
 
 
@@ -31,7 +31,7 @@ STATICFILES_DIRS = (
 )
 
 dotenv_path = os.path.join(BASE_DIR, '.env')
-dotenv.load_dotenv(dotenv_path)
+load_dotenv(dotenv_path)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
