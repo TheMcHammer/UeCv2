@@ -1,1 +1,1 @@
-web: gunicorn UeCv2.wsgi --log-file -
+web: gunicorn UeCv2.wsgi:application --log-file -
