@@ -12,7 +12,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 #from dotenv import load_dotenv
-import django_heroku
+#import django_heroku
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -164,4 +164,4 @@ TWILIO_CHAT_SERVICE_SID = os.environ.get('TWILIO_CHAT_SERVICE_SID', None)
 TWILIO_PRIVATE_SERVICE_SID = os.environ.get('TWILIO_PRIVATE_SERVICE_SID', None)
 TWILIO_SYNC_SID = os.environ.get('TWILIO_SYNC_SID',None)
 
-django_heroku.settings(locals())
+#django_heroku.settings(locals())
