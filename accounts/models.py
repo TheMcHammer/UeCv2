@@ -8,8 +8,7 @@ class UserManager(BaseUserManager):
 
         if not email:
             raise ValueError("User must have email address")
-        if not username:
-            raise ValueError("User must have a username")
+
         if not password:
             raise ValueError("User must have a password")
 
@@ -19,6 +18,7 @@ class UserManager(BaseUserManager):
             #username=username,
             ** extra_fields)
         )
+
         user_obj.set_password(password)
         user_obj.staff = is_staff
         user_obj.admin = is_admin
@@ -57,14 +57,14 @@ class User(AbstractBaseUser, PermissionsMixin):
     #is_student = models.BooleanField(default=False)
     #is_counsel = models.BooleanField(default=False)
 
-    USERNAME_FIELD = 'username'
+    USERNAME_FIELD = 'email'
 
-    REQUIRED_FIELDS = ['email']
+    REQUIRED_FIELDS = ['username']
 
     objects = UserManager()
 
     def __str__(self):
-        return self.username
+        return self.email
 
     def get_absolute_url(self):
         return "/users/%i/" % (self.pk)
@@ -73,7 +73,7 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.email
 
     def get_short_name(self):
-        return self.email
+        return self.username
 
     def has_perm(self, perm, obj=None):
         return True

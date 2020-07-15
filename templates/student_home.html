@@ -1,13 +1,7 @@
-{% extends 'base.html' %}
-{% block title %}Home{% endblock title %}
-{%block body%}
-{% load static %}
-<style>
-    .div-1 {
-        background-color: #EBEBEB;
+{% extends 'common_student.html' %}
 
-    }
-</style>
+{%block common_student%}
+{% load static %}
 
 <br class="mkt-s2 container">
 
@@ -21,7 +15,6 @@
             <img src="{% static 'home/counselling.jpg' %}" style="width:400px;height:300px;" alt="counsel">
 
         </div>
-        <h2 class="mkt-s2-h">Healthy Mind, Healthy Body</h2>
         <div class="col-md-4 div-1">
             <img class="" src=""/>
             <h3>Counselling is NOT!</h3>
@@ -44,5 +37,4 @@
     <!--<a href="{% url 'signup'%}" class=" sgn-btm ">SIGN UP </a>
     <a href="{% url 'login'%}" class=" sgn-btm ">LOG IN </a>-->
 </div>
-{%endblock%}
-
+{% endblock common_student %}

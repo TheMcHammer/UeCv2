@@ -11,6 +11,10 @@ import datetime
 from django.contrib.auth.decorators import login_required
 
 @login_required()
+def student_home(request):
+    return render(request, 'student_home.html')
+
+@login_required()
 def quick_appointmnet(request):
 	group_name=Group.objects.all().filter(user = request.user)# get logget user grouped name
 	group_name=str(group_name[0]) # convert to string

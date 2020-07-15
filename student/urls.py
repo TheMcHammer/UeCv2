@@ -11,7 +11,7 @@ from .views import (
 )
 
 urlpatterns = [
-    path('', views.student, name='student'),
+    path('', views.student_home, name='student_home'),
     path('my_appointment/', views.student, name='student'),
     path('quick_appointmnet/', views.quick_appointmnet, name='quick_appointmnet'),
     path('update/<int:id>/', views.appointment_book, name='appointment_update'),

@@ -134,3 +134,16 @@ span.inline {
   width: 30%;
 
 }
+
+.holder {
+    display: inline;
+    }
+.holder img {
+    max-height: 200px;
+    max-width: 200px;
+    object-fit: cover;
+}
+
+.div-1 {
+        background-color: #EBEBEB;
+    }

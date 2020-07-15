@@ -1,49 +1,82 @@
 {% extends 'base.html' %}
 
 {% block body %}
+{% load static %}
 
-<br>
-  <section class="hero is-info">
-    <div class="hero-body has-text-centered">
-      <div class="container">
-        <h1 class="title is-2">
-          eCounselling Chat
-        </h1>
-        <h2 class="subtitle is-5">
-          An exploration into eCounselling Chat.
-          <br/> Join one of the rooms below to start your adventure
-        </h2>
-      </div>
-    </div>
-  </section>
-  </br>
-  </br>
-  </br>
-  </br>
-  </br>
-  </br>
-  </br>
-  <section class="section">
-    <div class="container">
-      <div class="columns">
-        {% for room in rooms %}
-        <div class="column">
-          <div class="card rounded-edges">
-            <div class="card-content">
-              <p class="title is-4">{{room.name}}</p>
-              <div class="content">
-                <p>
-                  {{room.description}}
-                </p>
-                <a href="rooms/{{room.slug}}" class="button">Join Room</a>
-              </div>
-            </div>
-          </div>
+<br class="mkt-s2 container">
+    <div class="mkt-s2-body">
+        <div class="col-md-4 mkt-vp">
+            <h3>What is Counselling?</h3>
+            <p>A discussion therapy that involves a trained
+            therapist listening to you and helping you
+            find ways to deal with emotional issues.</p>
+
+
         </div>
-        {% endfor %}
-      </div>
+        <div class="col-md-4 div-1">
+            <br>
+              <section class="hero is-info">
+                <div class="hero-body has-text-centered">
+                  <div class="container">
+                    <h1 class="title is-2">
+                      eCounselling Chat
+                    </h1>
+                    <h3 class="subtitle is-5">
+                      Welcome to Our online forums!
+                      <br/>
+                      Join one of the rooms below to
+                      </br>
+                      start chatting!
+                    </h3>
+                  </div>
+                </div>
+              </section>
+              </br>
+              </br>
+              </br>
+              </br>
+              </br>
+              </br>
+              </br>
+              </br>
+              </br>
+
+              <section class="section">
+                <div class="container">
+                  <div class="columns">
+                    {% for room in rooms %}
+                    <div class="column">
+                      <div class="card rounded-edges">
+                        <div class="card-content">
+                          <p class="title is-4">{{room.name}}</p>
+                          <div class="content">
+                            <p>
+                              {{room.description}}
+                            </p>
+                            <a href="rooms/{{room.slug}}" class="button">Join Room</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    {% endfor %}
+                  </div>
+                </div>
+              </section>
+
+        </div>
+        <div class="col-md-4 mkt-vp">
+            <img class="" src=""/>
+            <h3>Why U-eCounselling</h3>
+            <p>Accessibility. Web counselling is easily accessible to all those who wish to use it. </p>
+            <p>Convenience. Online therapy is convenient. ...</p>
+            <p>Affordability. Web counselling has been shown to be more economical for both the therapist and the client.</p>
+        </div>
     </div>
-  </section>
+    {# Second Signup Link #}
+    <!--<a href="{% url 'signup'%}" class=" sgn-btm ">SIGN UP </a>
+    <a href="{% url 'login'%}" class=" sgn-btm ">LOG IN </a>-->
+</div>
+
 </body>
 
 {% endblock %}

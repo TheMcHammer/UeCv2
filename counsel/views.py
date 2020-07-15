@@ -8,6 +8,10 @@ from django.contrib.auth.models import Group
 from django.contrib.auth.decorators import login_required
 
 @login_required()
+def counsel_home(request):
+    return render(request, 'counsel_home.html')
+
+@login_required()
 def counsel(request):  # this section for my appointment
     group_name = Group.objects.all().filter(user=request.user)  # get logget user grouped name
     group_name = str(group_name[0])  # convert to string

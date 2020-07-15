@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-#from dotenv import load_dotenv
+from dotenv import load_dotenv
 #import django_heroku
 
 
@@ -30,8 +30,8 @@ STATICFILES_DIRS = (
     os.path.join(PROJECT_ROOT, 'static'),
 )
 
-#dotenv_path = os.path.join(BASE_DIR, '.env')
-#load_dotenv(dotenv_path)
+dotenv_path = os.path.join(BASE_DIR, '.env')
+load_dotenv(dotenv_path)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -42,9 +42,22 @@ SECRET_KEY = '%8svmm%)4=so1o$9t=a3mgw4we_pmsbt_ne8ze*o$1@h!==qc!'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['uecv2.herokuapp.com']
+ALLOWED_HOSTS = []
 
+redis_host = os.environ.get('REDIS_HOST', 'localhost')
 
+# Channel layer definitions
+# http://channels.readthedocs.org/en/latest/deploying.html#setting-up-a-channel-backend
+CHANNEL_LAYERS = {
+    "default": {
+        # This example app uses the Redis channel layer implementation asgi_redis
+        "BACKEND": "asgi_redis.RedisChannelLayer",
+        "CONFIG": {
+            "hosts": [(redis_host, 6379)],
+        },
+       "ROUTING": "multichat.routing.channel_routing", # We will create it in a moment
+    },
+}
 # Application definition
 
 INSTALLED_APPS = [
@@ -151,7 +164,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+#STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (os.path.join(os.path.dirname(__file__),'static'),)
 
 LOGIN_REDIRECT_URL = 'group'

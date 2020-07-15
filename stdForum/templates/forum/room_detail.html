@@ -1,32 +1,59 @@
 {% extends 'base.html' %}
 {%load static%}
 {%block body%}
+{% load static %}
 
-  <div class="container">
-    <div class="columns">
-      <div class="column is-three-quarters">
-        <section>
-          <div id="messages"></div>
-          <form id="message-form">
-            <div class="field">
-              <label class="label">Message</label>
-              <div class="control">
-                <textarea class="textarea" id="message-input"placeholder="Your message here" rows="3" autofocus></textarea>
+<br class="mkt-s2 container">
+    <h2 class="mkt-s2-h">Healthy Mind, Healthy Body</h2>
+    <div class="mkt-s2-body">
+        <div class="col-md-4 mkt-vp">
+            <h3>What is Counselling?</h3>
+            <p>A discussion therapy that involves a trained
+            therapist listening to you and helping you
+            find ways to deal with emotional issues.</p>
+
+
+        </div>
+        <div class="col-md-4 div-1">
+            <div class="container">
+              <div class="columns">
+                <div class="column is-three-quarters">
+                  <section>
+                    <div id="messages"></div>
+                    <form id="message-form">
+                      <div class="field">
+                        <label class="label">Message</label>
+                        <div class="control">
+                          <textarea class="textarea" id="message-input"placeholder="Your message here" rows="3" autofocus></textarea>
+                        </div>
+                      </div>
+                      <button type="submit" class="button">Send</button>
+                    </form>
+                  </section>
+                </div>
+
+
               </div>
             </div>
-            <button type="submit" class="button">Send</button>
-          </form>
-        </section>
-      </div>
-      
-
+        </div>
+        <div class="col-md-4 mkt-vp">
+            <img class="" src=""/>
+            <h3>Why U-eCounselling</h3>
+            <p>Accessibility. Web counselling is easily accessible to all those who wish to use it. </p>
+            <p>Convenience. Online therapy is convenient. ...</p>
+            <p>Affordability. Web counselling has been shown to be more economical for both the therapist and the client.</p>
+        </div>
     </div>
-  </div>
+    {# Second Signup Link #}
+    <!--<a href="{% url 'signup'%}" class=" sgn-btm ">SIGN UP </a>
+    <a href="{% url 'login'%}" class=" sgn-btm ">LOG IN </a>-->
+
+
 
   <script src="https://media.twiliocdn.com/sdk/js/common/v0.1/twilio-common.min.js"></script>
   <script src="https://media.twiliocdn.com/sdk/js/chat/v2.0/twilio-chat.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
-  <script src="{% static 'forum/scripts/publicChat.js' %}"></script>
+  <script src="{% static 'stdForum/scripts/publicChat.js' %}"></script>
 
 
 {%endblock%}

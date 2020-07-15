@@ -5,9 +5,9 @@ import datetime
 # Database creation for teacher appintment.
 class Appointment(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, blank=True, null=True, on_delete=models.DO_NOTHING)
-    date = models.DateField(default=datetime.date.today)
-    time_start = models.TimeField()
-    time_end = models.TimeField()
+    date = models.CharField(max_length=50)
+    time_start = models.CharField(max_length=50)
+    time_end = models.CharField(max_length=50)
     room_number = models.CharField(max_length=50)
     appointment_with = models.CharField(max_length=50, blank=True)
     update_time = models.DateField(auto_now=True, auto_now_add=False)

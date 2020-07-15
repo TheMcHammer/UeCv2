@@ -39,7 +39,7 @@
                                           <td>{{appoint.date}}</td>
                                           <td>{{appoint.time_start}} - {{appoint.time_end}}</td>
                                           <td>{{appoint.room_number}}</td>
-                                    {% if appoint.time_start != now  %}
+                                    {% if appoint.time_start != 0  %}
                                     <td>
                                       <a href='{% url "messages_compose" %}'> <button class="btn btn-primary" type="submit">Start Chat</button></a></span>
                                     </td>
