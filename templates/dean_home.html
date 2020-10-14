@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block body %}
+
+    <div class="container ">
+
+   	             <div class="col-sm-8">
+						     <ul class="nav nav-pills">
+								  <li class="nav-item">
+								    <a class="nav-link" href='{% url "dean_home"%}'>Home</a>
+								  </li>
+								  <li class="nav-item">
+								    <a class="nav-link" href='{% url "counsel_appointment"%}'>Counsellors</a>
+								  </li>
+								  <li class="nav-item">
+								    <a class="nav-link" href='{% url "counsel_appointment_list"%}'>Analytics</a>
+								  </li>
+							  </ul>
+                  </div>
+
+
+
+    </div>
+
+	<div class="col-md-4 div-1">
+		<h4>Users: {{ object_list.count }}</h4>
+
+		<h4>Male: {{ object_list.count }}</h4>
+
+		<h4>Female: {{ object_list.count }}</h4>
+
+		<h4>Students: {{ object_list.count }}</h4>
+
+		<h4>Counsellors: {{ object_list.count }}</h4>
+ 		<ul>
+
+        {% for user in object_list %}
+			{% if user.profile.user_type == 'counsel'%}
+				<li class="user">{{ user }}</li>
+				<li class="user">{{ user.username }}</li>
+				<li class="user">{{ user.profile.user_type }}</li>
+				<li class="user">{{ user.profile.gender }}</li>
+			{%endif%}
+        {% endfor %}
+
+    	</ul>
+	</div>
+
+{% block dean_home%}
+
+{% endblock dean_home%}
+
+{% endblock %}

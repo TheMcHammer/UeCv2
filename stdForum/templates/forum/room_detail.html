@@ -1,12 +1,13 @@
 {% extends 'base.html' %}
 {%load static%}
 {%block body%}
-{% load static %}
 
-<br class="mkt-s2 container">
-    <h2 class="mkt-s2-h">Healthy Mind, Healthy Body</h2>
-    <div class="mkt-s2-body">
-        <div class="col-md-4 mkt-vp">
+
+<div class="container">
+<div class="row">
+    <h2 class="lead">Healthy Mind, Healthy Body</h2>
+    
+        <div class="col-sm-offset-3 col-sm-7">
             <h3>What is Counselling?</h3>
             <p>A discussion therapy that involves a trained
             therapist listening to you and helping you
@@ -14,7 +15,7 @@
 
 
         </div>
-        <div class="col-md-4 div-1">
+        <div class="col-sm-offset-3 col-sm-7">
             <div class="container">
               <div class="columns">
                 <div class="column is-three-quarters">
@@ -36,14 +37,15 @@
               </div>
             </div>
         </div>
-        <div class="col-md-4 mkt-vp">
+        <div class="col-sm-offset-3 col-sm-7">
             <img class="" src=""/>
-            <h3>Why U-eCounselling</h3>
-            <p>Accessibility. Web counselling is easily accessible to all those who wish to use it. </p>
-            <p>Convenience. Online therapy is convenient. ...</p>
-            <p>Affordability. Web counselling has been shown to be more economical for both the therapist and the client.</p>
+            <h3>Some Encouraging Article</h3>
+            <p><a href="https://www.keepinspiring.me/inspirational-words-of-encouragement/">KeepInspiring.me</a></p></br>
+            <p><a href="https://www.desiringgod.org/topics/encouragement/articles/">DesiringGod.org</a></p></br>
+            <p><a href="https://strengthforthesoul.com/encouragement/articles-of-encouragement/">strengthforthesoul</a></p></br>
+
         </div>
-    </div>
+    
     {# Second Signup Link #}
     <!--<a href="{% url 'signup'%}" class=" sgn-btm ">SIGN UP </a>
     <a href="{% url 'login'%}" class=" sgn-btm ">LOG IN </a>-->
@@ -55,5 +57,6 @@
   <script src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous"></script>
   <script src="{% static 'stdForum/scripts/publicChat.js' %}"></script>
 
-
+</div>
+</div>
 {%endblock%}

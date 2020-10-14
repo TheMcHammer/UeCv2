@@ -11,7 +11,7 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
-from dotenv import load_dotenv
+from dotenv import load
 #import django_heroku
 
 
@@ -31,7 +31,7 @@ STATICFILES_DIRS = (
 )
 
 dotenv_path = os.path.join(BASE_DIR, '.env')
-load_dotenv(dotenv_path)
+load(dotenv_path)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -67,17 +67,36 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django_apscheduler',
+    'crispy_forms','django.contrib.sites',
 
     'home',
     'accounts',
     'appointments',
     'counsel',
     'student',
-    'profiles',
+    'profiles.apps.ProfilesConfig',
     'chat',
     'django_messages',
-    'stdForum'
+    'stdForum',
+    'schedule',
+    'dean'
 ]
+
+SESSION_EXPIRE_AT_BROWSER_CLOSE = True
+# This scheduler config will:
+# - Store jobs in the project database
+# - Execute jobs in threads inside the application process
+
+SCHEDULER_CONFIG = {
+    "apscheduler.jobstores.default": {
+        "class": "django_apscheduler.jobstores:DjangoJobStore"
+    },
+    'apscheduler.executors.processpool': {
+        "type": "threadpool"
+    },
+}
+SCHEDULER_AUTOSTART = True
 
 AUTH_USER_MODEL = "accounts.User"
 
@@ -161,11 +180,15 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
 
 STATIC_URL = '/static/'
 
 #STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_DIRS = (os.path.join(os.path.dirname(__file__),'static'),)
+
+MEDIA_ROOT= os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = 'group'
 LOGOUT_REDIRECT_URL = ''

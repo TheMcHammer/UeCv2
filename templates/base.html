@@ -16,6 +16,7 @@
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 		<link rel="shortcut icon" href="//www.twilio.com/marketing/bundles/marketing/img/favicons/favicon.icon">
 		<link rel="stylesheet" href="{% static 'stdForum/styles/room_detail.css' %}">
+		<link rel="stylesheet" href="{% static 'footer.css' %}">
 		<!--datepicker source-->
 		<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 		<script type="text/javascript" src="{% static 'accounts/scripts/jquery.timepicker.js' %}"></script>
@@ -29,7 +30,8 @@
 	</head>
 
 	<body>
-		<nav class="navbar navbar-inverse">
+	<div class='container-fluid'>
+		<nav class="navbar navbar-expand-lg navbar-dark primary-color">
 			<div class="container-fluid">
 
 				<div class="navbar-header">
@@ -38,7 +40,11 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href=""><img src = "{% static 'accounts/images/uecLogo.jpg' %}" id="logo"></a>
+					<a class="navbar-brand" href="">
+					
+					<img src = "{% static 'accounts/images/uecLogo.jpg' %}" id="logo" class="img-circle">
+					
+					</a>
 					<h1 class="navbar-text">University e-Counselling</h1>
 				</div>
 
@@ -51,7 +57,9 @@
 
 					</ul>
 
-
+<button class="btn btn-default" type="submit">
+        <i class="glyphicon glyphicon-search"></i>
+      </button>
 
 					<ul class="nav navbar-nav navbar-right">
 
@@ -94,6 +102,67 @@
 		{% endblock %}
 		{% block sidebar %}
 		{% endblock %}
+		
+		<!-- Site footer -->
+    
+    <section style="height:80px;"></section>
+	<div class="row" style="text-align:center;">
+		
+	</div>
+    <!----------- Footer ------------>
+    <footer class="footer-bs">
+        <div class="row">
+        	<div class="col-md-3 footer-brand animated fadeInLeft">
+            	<img src = "{% static 'accounts/images/uecLogo.jpg' %}" id="logo">
+                <p>A healthy mind is a necessary for a healthy body.</p>
+                <p>© 2020 Claudetech, All rights reserved</p>
+            </div>
+        	<div class="col-md-4 footer-nav animated fadeInUp">
+            	<h4>Menu —</h4>
+            	<div class="col-md-6">
+                    <ul class="pages">
+                        <li><a href="#">Counselors</a></li>
+                        <li><a href="#">University Medical Services</a></li>
+                        <li><a href="#">Resources and Downloads</a></li>
+                        <li><a href="#">School Chaplain</a></li>
+                        <li><a href="#">Career Office</a></li>
+                    </ul>
+                </div>
+            	<div class="col-md-6">
+                    <ul class="list">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Contacts</a></li>
+                        <li><a href="#">Terms & Condition</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        	<div class="col-md-2 footer-social animated fadeInDown">
+            	<h4>Follow Us</h4>
+            	<ul>
+                	<li><a href="#">Facebook</a></li>
+                	<li><a href="#">Twitter</a></li>
+                	<li><a href="#">Instagram</a></li>
+                	<li><a href="#">RSS</a></li>
+                </ul>
+            </div>
+        	<div class="col-md-3 footer-ns animated fadeInRight">
+            	<h4>Newsletter</h4>
+                <p>Search for Newsletter</p>
+                <p>
+                    <div class="input-group">
+                      <input type="text" class="form-control" placeholder="Search for...">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-envelope"></span></button>
+                      </span>
+                    </div><!-- /input-group -->
+                 </p>
+            </div>
+        </div>
+    </footer>
+    <section style="text-align:center; margin:10px auto;"><p>Designed by <a href="https://uonec.pythonanywhere.com">Claude Nyunya </a></p></section>
+
+</div>
 		</div>
 
 	</body>

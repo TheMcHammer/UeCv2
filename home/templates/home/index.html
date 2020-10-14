@@ -4,42 +4,65 @@
 {% load static %}
 <style>
     .div-1 {
-        background-color: #EBEBEB;
+        background-color: #ffffff;
 
     }
 </style>
+ <div class="container">
+  <div class="row">
+		<div class="jumbotron">
 
-<br class="mkt-s2 container">
+  <h1 class="display-3">Healthy Mind, Healthy Body</h1>
+  <p class="lead">This is a simple hero unit, a simple jumbotron-style component for
+                  calling extra attention to featured content or information.</p>
+  <hr class="my-2">
+  <p>It uses utility classes for typography and
+     spacing to space content out within the larger container.</p>
+  <p class="lead">
+    <a class="btn btn-primary btn-lg" href="#!" role="button">Some action</a>
+  </p>
+</div>
+</div>
 
-    <div class="mkt-s2-body">
-        <div class="col-md-4 mkt-vp">
-            <h3>What is Counselling?</h3>
-            <p>A discussion therapy that involves a trained
+   
+        <div class="row">
+		<div class="col-sm-offset-0 col-sm-12">
+            <h1 class="col-sm-offset-4 col-sm-9">What is Counselling?</h1>
+            <p class="lead" >A discussion therapy that involves a trained
             therapist listening to you and helping you
             find ways to deal with emotional issues.</p>
 
-            <img src="{% static 'home/counselling.jpg' %}" style="width:400px;height:300px;" alt="counsel">
-
+            <img src="{% static 'home/counselling.jpg' %}" class="img-rounded col-sm-offset-2 col-sm-9" alt="counsel">
+</div>
         </div>
-        <h2 class="mkt-s2-h">Healthy Mind, Healthy Body</h2>
-        <div class="col-md-4 div-1">
-            <img class="" src=""/>
-            <h3>Counselling is NOT!</h3>
-            <p> Giving advice.</p>
-            <p> Being judgemental.</p>
-            <p> Attempting to sort out the problems of the client.</p>
-            <p> Getting emotionally involved with the client.</p>
-            <p>Looking at a client’s problems from your own perspective, based on your own value system.</p>
-
+      
+  
+    <div class="row">
+        <div class="col-sm-offset-3 col-sm-7">
+           
+            <h1>Counselling is NOT!</h1>
+			<ul class="list-group">
+           <li class="list-group-item"> Giving advice </li>
+              <li class="list-group-item">Being judgemental</li>
+             <li class="list-group-item">Attempting to sort out the problems of the client.</li>
+             <li class="list-group-item"> Getting emotionally involved with the client.</li>
+             <li class="list-group-item">Looking at a client’s problems from your own perspective, based on your own value system.
+            </ul >
         </div>
-        <div class="col-md-4 mkt-vp">
+<div class="row">
+        <div class="col-sm-offset-3 col-sm-7 ">
             <img class="" src=""/>
-            <h3>Why U-eCounselling</h3>
-            <p>Accessibility. Web counselling is easily accessible to all those who wish to use it. </p>
-            <p>Convenience. Online therapy is convenient. ...</p>
-            <p>Affordability. Web counselling has been shown to be more economical for both the therapist and the client.</p>
+            <h1>Why U-eCounselling ?</h1>
+            <ul class="list-group"> 
+			<li class="list-group-item"> Accessibility. </li>
+			 <li class="list-group-item"> Affordability. </li>
+			<li class="list-group-item"> Web counselling is easily accessible to all those who wish to use it. </li> 
+            <li class="list-group-item"> Online therapy is convenient. </li>
+             <li class="list-group-item"> Web counselling has been shown to be more economical for both the therapist and the client. </li>
+			</ul >
         </div>
     </div>
+	</div>
     {# Second Signup Link #}
     <!--<a href="{% url 'signup'%}" class=" sgn-btm ">SIGN UP </a>
     <a href="{% url 'login'%}" class=" sgn-btm ">LOG IN </a>-->

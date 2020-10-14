@@ -7,25 +7,28 @@
    	             <div class="col-sm-8">            
 						     <ul class="nav nav-pills">
 								  <li class="nav-item">
-								    <a class="nav-link" href='{% url "student_home"%}'>Home</a>
+									<a class="nav-link" href='{% url "student_home"%}'>Home</a>
 								  </li>
 								  <li class="nav-item">
-								    <a class="nav-link" href='{% url "student"%}'>My Appointments</a>
-								  </li>
-									<li class="nav-item">
-								    <a class="nav-link" href='{% url "quick_appointmnet"%}'> Appointments</a>
+									<a class="nav-link" href='{% url "student"%}'>My Appointments</a>
 								  </li>
 								  <li class="nav-item">
-								    <a href="/messages" target="blank"><strong>Inbox</strong></a>
+									<a class="nav-link" href='{% url "quick_appointmnet"%}'> Appointments</a>
+								  </li>
+								  <li class="nav-item">
+									<a href="/messages" target="blank"><strong>Inbox</strong></a>
 								  </li>
 								 <li class="nav-item">
-								    <a href="/stdForum" target="blank"><strong>Forums</strong></a>
+									<a href="/stdForum" target="blank"><strong>Forums</strong></a>
+								  </li>
+								 <li class="nav-item">
+									<a href="/profiles" target="blank"><strong>Profile</strong></a>
 								  </li>
 							  </ul>	                             
                   </div>
 
     </div>
-    -->
+
 
     {% block common_student %}
     

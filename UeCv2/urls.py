@@ -17,6 +17,8 @@ from django.conf.urls import url
 from django.urls import path, include
 from django.contrib import admin
 from django.views.generic.base import TemplateView
+from django.conf import settings
+from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,8 +27,14 @@ urlpatterns = [
     path('accounts/', include('django.contrib.auth.urls')),
     path('student/', include("student.urls")),
     path('counsel/', include("counsel.urls")),
-    path('messages/', include('django_messages.urls')),
+    path('messages/', include('chat.urls')),
     path('stdForum/', include('stdForum.urls')),
+    path('profiles/', include('profiles.urls')),
+    path('dean/', include('dean.urls')),
+    #path('schedule/', include('schedule.urls')),
     #path(r'', include('chatapp.urls')),
     #path('', TemplateView.as_view(template_name='home.html'), name='home'),
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

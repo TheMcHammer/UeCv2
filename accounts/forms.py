@@ -1,6 +1,8 @@
 from django import forms
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
+from profiles.models import Profile
+from crispy_forms.helper import FormHelper
 
 User = get_user_model()
 
@@ -32,6 +34,36 @@ class UserAdminCreationForm(forms.ModelForm):
             user.save()
         return user
 
+
+class SignUpForm(UserAdminCreationForm):
+    #helper = FormHelper
+    #helper.form_show_labels = False
+
+    USER_CHOICES = (
+        ('student', 'student'),
+        ('counsel', 'counsel'),
+    )
+    username = forms.CharField(max_length=100)
+    email = forms.EmailField(max_length=150)
+    user_type = forms.ChoiceField(choices = USER_CHOICES)
+
+
+    class Meta:
+        model = User
+        fields = ('username', 'email', 'user_type', 'password1', 'password2',)
+
+class UserUpdateForm(forms.ModelForm):
+    username = forms.CharField(max_length=100)
+    email = forms.EmailField(max_length=150)
+
+    class Meta:
+        model = User
+        fields = ('username', 'email')
+
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model = Profile
+        fields = ('birthdate', 'year', 'course', 'image')
 
 class UserAdminChangeForm(forms.ModelForm):
     """A form for updating users. Includes all the fields on

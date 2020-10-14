@@ -10,19 +10,19 @@
         </div>
         <div class="col-md-4 div-1">
             <h1>{% trans "Inbox" %}</h1>
-            {% if message_list %}
+            {% if message_in %}
             <table class="messages">
                 <thead>
                     <tr><th>{% trans "Sender" %}</th><th>{% trans "Subject" %}</th><th>{% trans "Received" %}</th><th>{% trans "Action" %}</th></tr>
                 </thead>
                 <tbody>
-            {% for message in message_list %}
+            {% for message in message_in %}
                 <tr>
                     <td>{{ message.sender }}</td>
                     <td>
                         {% if message.new %}<strong>{% endif %}
                         {% if message.replied %}<em>{% endif %}
-                        <a href="{{ message.get_absolute_url }}">{{ message.subject }}</a>
+                            <a href="{{ message.get_absolute_url }}">{{ message.subject }}</a></br>
                         {% if message.replied %}</em>{% endif %}
                         {% if message.new %}</strong>{% endif %}</td>
                     <td>{{ message.sent_at|date:_("DATETIME_FORMAT") }}</td>
@@ -32,16 +32,33 @@
                 </tbody>
             </table>
             {% else %}
-            <p>{% trans "No messages." %}</p>
+            <p>{% trans "No Messages." %}</p>
             {% endif %}
 
         </div>
         <div class="col-md-4 mkt-vp">
-            <img class="" src=""/>
-            <h3>Why U-eCounselling</h3>
-            <p>Accessibility. Web counselling is easily accessible to all those who wish to use it. </p>
-            <p>Convenience. Online therapy is convenient. ...</p>
-            <p>Affordability. Web counselling has been shown to be more economical for both the therapist and the client.</p>
+            <h1>{% trans "Sent Messages" %}</h1>
+            {% if message_out %}
+            <table class="messages">
+                <thead>
+                    <tr><th>{% trans "Recipient" %}</th><th>{% trans "Subject" %}</th><th>{% trans "Sent" %}</th><th>{% trans "Action" %}</th></tr>
+                </thead>
+                <tbody>
+            {% for message in message_out %}
+                <tr>
+                    <td>{{ message.recipient }}</td>
+                    <td>
+                    <a href="{{ message.get_absolute_url }}">{{ message.subject }}</a>
+                    </td>
+                    <td>{{ message.sent_at|date:_("DATETIME_FORMAT") }}</td>
+                    <td><a href="{% url 'messages_delete' message.id %}?next={% url 'messages_outbox' %}">{% trans "delete" %}</a></td>
+                </tr>
+            {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p>{% trans "No messages." %}</p>
+            {% endif %}
         </div>
     </div>
     {# Second Signup Link #}

@@ -7,8 +7,8 @@ from django.contrib.auth.models import Group
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
-from accounts.models import User, user_type
-from .forms import UserAdminCreationForm
+from accounts.models import User
+from .forms import UserAdminCreationForm, SignUpForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.forms import AuthenticationForm
 
 #def group_check(request):
@@ -22,17 +22,34 @@ from django.contrib.auth.forms import AuthenticationForm
 #		print(group_name)
 #		return redirect('http://127.0.0.1:8000/counsel/')
 
+
+#def group_check(request):
+	#group_name=Group.objects.all().filter(user = request.user)# get logget user grouped name
+	#group_name=str(group_name[0]) # convert to string
+#	user = request.user
+#	if user.groups.filter(name='student').exists():
+		#print (group_name)
+#		return redirect('http://127.0.0.1:8000/student/')
+#	elif user.groups.filter(name='counsel').exists():
+		#print(group_name)
+#		return redirect('http://127.0.0.1:8000/counsel/')
+
 def group_check(request):
 	#group_name=Group.objects.all().filter(user = request.user)# get logget user grouped name
 	#group_name=str(group_name[0]) # convert to string
-	user = request.user
-	if user.groups.filter(name='student').exists():
+	group_name = request.user.profile.user_type
+	#user_type = str(type[0])
+	if group_name == 'student':
 		#print (group_name)
 		return redirect('http://127.0.0.1:8000/student/')
-	elif user.groups.filter(name='counsel').exists():
-		#print(group_name)
+	elif group_name == 'counsel':
+		#print (group_name)
 		return redirect('http://127.0.0.1:8000/counsel/')
-
+	elif group_name == 'dean':
+		#print (group_name)
+		return redirect('http://127.0.0.1:8000/dean/')
+	else:
+		return redirect('http://127.0.0.1:8000/')
 
 def logout_view(request):
 	auth.logout(request)
@@ -64,27 +81,36 @@ def logout_view(request):
 #		return redirect('home')
 #	return render(request, 'signup.html')
 def signup(request):
-	form = UserAdminCreationForm(request.POST or None)
+	form = SignUpForm(request.POST or None)
 	if request.method == "POST":
 		if form.is_valid():
 			user = form.save()
+			user.refresh_from_db()
+			#user.profile.username = form.cleaned_data.get('username')
+			user.profile.email = form.cleaned_data.get('email')
+			user.profile.user_type = form.cleaned_data.get('user_type')
+			user.save()
 			username = form.cleaned_data.get('username')
+			password = form.cleaned_data.get('password1')
+			#user = authenticate(username=username, password=password)
 			login(request, user)
-			return redirect('group/')
+			return redirect('/accounts/group/')
+	else:
+		form=SignUpForm()
+		#else:
+			#for msg in form.error_messages:
+				#print(form.error_messages[msg])
 
-		else:
-			for msg in form.error_messages:
-				print(form.error_messages[msg])
-
-			return render(request=request,
-						  template_name="register_counsel.html",
-						  context={"form": form})
-	form = UserAdminCreationForm
+			#return render(request=request,
+						  #template_name="register_counsel.html",
+						  #context={"form": form})
+	#form = UserAdminCreationForm
 	return render(request=request, template_name ='register_counsel.html', context={"form":form})
 
 def login_request(request):
+	form = AuthenticationForm(request=request, data=request.POST)
 	if request.method == 'POST':
-		form = AuthenticationForm(request=request, data=request.POST)
+
 		if form.is_valid():
 			username = form.cleaned_data.get('username')
 			password = form.cleaned_data.get('password')
@@ -97,7 +123,7 @@ def login_request(request):
 				messages.error(request, "Invalid username or password.")
 		else:
 			messages.error(request, "Invalid username or password.")
-	form = AuthenticationForm()
+			form = AuthenticationForm()
 	return render(request=request,
 				  template_name="login_request.html",
 				  context={"form": form})

@@ -41,13 +41,19 @@
                                     <td>{{appoint.time_start}} - {{appoint.time_end}}</td>
                                     <td>{{appoint.room_number}}</td>
 
-                                    {% if appoint.time_start != now  %}
+                                    {% if appoint.time_start < now and now < appoint.time_end%}
                                     <td>
-                                      <a href='{% url "messages_compose" %}'> <button class="btn btn-primary" type="submit">Start Chat</button></a></span>
+                                      <a href='{% url "messages_compose_to" %}'> <button class="btn btn-primary " type="submit">Start Chat</button></a></span>
+                                    </td>
+                                    <td>
+                                      <a href='{% url "questions" %}'> <button class="btn btn-primary" type="submit" disabled>Waiting Room</button></a></span>
                                     </td>
                                     {% else %}
                                     <td>
-                                      <a href='{% url "messages_compose" %}'> <button class="btn btn-secondary" type="submit" disabled>Start Chat</button></a></span>
+                                      <a href='{% url "messages_compose_to" %}'> <button class="btn btn-secondary" type="submit" >Start Chat</button></a></span>
+                                    </td>
+                                    <td>
+                                      <a href='{% url "questions" %}'> <button class="btn btn-primary" type="submit">Waiting Room</button></a></span>
                                     </td>
                                     {% endif %}
                                   </tr>{% endfor %}<!--End For loop--> 

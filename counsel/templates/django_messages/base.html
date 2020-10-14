@@ -1,4 +1,9 @@
-{% extends "common_counsel.html" %}
+{% if user.profile.user_type == counsel: %}
+        {% extends "common_counsel.html" %}
+{% else: %}
+        {% extends "common_student.html"%}
+{% endif %}
+
 {% load i18n %}
 
 {% block content %}

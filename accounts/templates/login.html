@@ -1,18 +1,23 @@
 {% extends 'base.html' %}
+{% load crispy_forms_tags %}
 
 {% block body%}
 
+<div class="container">
 
-    <div class="login">
+<div class="row">
+
+    <div class="login ">
            <div class="container height">
 				  <div class="row">
-					    <div class="col-sm-6 offset-md-3">
+					    <div class="col-sm-offset-4 col-sm-4">
 
-	                            <h2 class="Login">Login To Continue</h2><br>
-	                           <form method="POST" action="/login/"> {% csrf_token %}
-						    		<div class="input-group mb-3">
+							   <h2 class="Login">Login To Continue</h2><br>
+							   <form method="POST" action="/login/"> {% csrf_token %}
+								   {{ form|crispy}}
+								   <div class="input-group mb-3">
 									  <div class="input-group-prepend">
-									    <span class="input-group-text" id="basic-addon1"><i class="far fa-user"></i></span>
+										<span class="input-group-text" id="basic-addon1"><i class="far fa-user"></i></span>
 									  </div>
 									  <input type="text" class="form-control" name="username" autofocus="" required="" id="id_username" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
 
@@ -20,7 +25,7 @@
 
 									<div class="input-group mb-3">
 									  <div class="input-group-prepend">
-									    <span class="input-group-text" id="basic-addon1">*</span>
+										<span class="input-group-text" id="basic-addon1">*</span>
 									  </div>
 									  <input type="password" name="password" required="" id="id_password" class="form-control" placeholder="Password" aria-label="Username" aria-describedby="basic-addon1">
 									</div>
@@ -38,6 +43,8 @@
 
 				  </div>
 			</div>
+</div>
+</div>
 </div>
 
 {%endblock%}

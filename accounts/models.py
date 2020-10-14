@@ -92,13 +92,13 @@ class User(AbstractBaseUser, PermissionsMixin):
         return self.active
 
 
-class user_type(models.Model):
-     is_counsel = models.BooleanField(default=False)
-     is_student = models.BooleanField(default=False)
-     user = models.OneToOneField(User, on_delete=models.CASCADE)
+#class user_type(models.Model):
+#     is_counsel = models.BooleanField(default=False)
+#     is_student = models.BooleanField(default=False)
+#     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
-     def __str__(self):
-         if self.is_student == True:
-             return User.get_username(self.user) + " - is_student"
-         else:
-             return User.get_username(self.user) + " - is_counsel"
+#     def __str__(self):
+#         if self.is_student == True:
+#             return User.get_username(self.user) + " - is_student"
+ #        else:
+ #            return User.get_username(self.user) + " - is_counsel"

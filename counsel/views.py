@@ -13,8 +13,9 @@ def counsel_home(request):
 
 @login_required()
 def counsel(request):  # this section for my appointment
-    group_name = Group.objects.all().filter(user=request.user)  # get logget user grouped name
-    group_name = str(group_name[0])  # convert to string
+    #group_name = Group.objects.all().filter(user=request.user)  # get logget user grouped name
+    #group_name = str(group_name[0])  # convert to string
+    group_name = request.user.profile.user_type
     if "counsel" == group_name:
         user_name = request.user.get_username()  # Getting Username
 
@@ -37,8 +38,9 @@ def counsel(request):  # this section for my appointment
 
 @login_required()
 def counsel_appointment_list(request):
-    group_name = Group.objects.all().filter(user=request.user)  # get logget user grouped name
-    group_name = str(group_name[0])  # convert to string
+    #group_name = Group.objects.all().filter(user=request.user)  # get logget user grouped name
+    #group_name = str(group_name[0])  # convert to string
+    group_name = request.user.profile.user_type
     if "counsel" == group_name:
         user_name = request.user.get_username()  # Getting Username
 
@@ -68,8 +70,9 @@ def counsel_appointment_list(request):
 
 @login_required()
 def appointment_delete(request, id):
-    group_name = Group.objects.all().filter(user=request.user)  # get logget user grouped name
-    group_name = str(group_name[0])  # convert to string
+    #group_name = Group.objects.all().filter(user=request.user)  # get logget user grouped name
+    #group_name = str(group_name[0])  # convert to string
+    group_name = request.user.profile.user_type
     if "counsel" == group_name:
         single_appointment = Appointment.objects.get(id=id)
         single_appointment.delete()
@@ -81,8 +84,9 @@ def appointment_delete(request, id):
 
 @login_required()
 def counsel_appointment_update(request, id):
-    group_name = Group.objects.all().filter(user=request.user)  # get logget user grouped name
-    group_name = str(group_name[0])  # convert to string
+    #group_name = Group.objects.all().filter(user=request.user)  # get logget user grouped name
+    #group_name = str(group_name[0])  # convert to string
+    group_name = request.user.profile.user_type
     if "counsel" == group_name:
         user_name = request.user.get_username()  # Getting Username
 
