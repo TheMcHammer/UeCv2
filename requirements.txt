@@ -52,6 +52,6 @@ twilio==6.10.1
 txaio==20.4.1
 tzlocal==2.1
 urllib3==1.23
-waitress==0.8.9
+waitress==1.4.3
 whitenoise==2.0.3
 zope.interface==5.1.2
