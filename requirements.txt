@@ -51,7 +51,7 @@ text-unidecode==1.2
 twilio==6.10.1
 txaio==20.4.1
 tzlocal==2.1
-urllib3==1.23
+urllib3==1.24.2
 waitress==0.8.9
 whitenoise==2.0.3
 zope.interface==5.1.2
