@@ -41,7 +41,7 @@ python-dateutil==2.7.3
 python-dotenv==0.9.1
 python-env==1.0.0
 pytz==2017.3
-pywin32==223
+pywin32==301
 redis==2.10.6
 requests==2.23.0
 service-identity==18.1.0
